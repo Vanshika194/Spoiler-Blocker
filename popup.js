@@ -1,13 +1,14 @@
 // Adding keywords to storage and displaying in list
 document.getElementById('addKeyword').addEventListener('click', function() {
   let newKeyword = document.getElementById('keywordInput').value.trim();
-  
+
   if (newKeyword) {
     chrome.storage.sync.get({ keywords: [] }, function(data) {
       let keywords = data.keywords;
-      if (!keywords.includes(newKeyword)) {
-        keywords.push(newKeyword);
-        
+      if (!keywords.some(item => item.keyword === newKeyword)) {
+        // Push the keyword as an object
+        keywords.push({ keyword: newKeyword });
+
         chrome.storage.sync.set({ keywords: keywords }, function() {
           displayKeywords(keywords);
           document.getElementById('keywordInput').value = ''; // Clear the input
@@ -24,11 +25,11 @@ function displayKeywords(keywords) {
   let keywordList = document.getElementById('keywordList');
   keywordList.innerHTML = ''; // Clear existing list
 
-  keywords.forEach((keyword, index) => {
+  keywords.forEach((item, index) => {
     let keywordItem = document.createElement('li');
 
     let keywordText = document.createElement('span');
-    keywordText.textContent = keyword;
+    keywordText.textContent = item.keyword; // Access the keyword property
 
     let removeBtn = document.createElement('button');
     removeBtn.classList.add('remove-btn');
@@ -58,4 +59,7 @@ function removeKeyword(index) {
 // Load the keyword list when the popup is opened
 chrome.storage.sync.get({ keywords: [] }, function(data) {
   displayKeywords(data.keywords);
+});
+document.getElementById('advancedOptions').addEventListener('click', function() {
+  chrome.tabs.create({ url: chrome.runtime.getURL('advanced.html') });
 });
