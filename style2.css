@@ -1,0 +1,173 @@
+/* General reset for margins and paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #4a99e9; /* Light blue background */
+    color: #343a40; /* Dark text color */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Outer container styling */
+.outer {
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Max width for larger screens */
+}
+/* Additional CSS for time input fields */
+/* Additional CSS for aligning inputs in one line */
+.input-container {
+    display: flex; /* Flexbox layout for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin: 15px 0; /* Margin above and below the input container */
+}
+
+.input-container input[type="text"] {
+    width: 250px; /* Width for keyword input */
+    margin-right: 10px; /* Space between keyword input and time inputs */
+}
+
+/* Style for time input fields */
+.time-inputs {
+    display: flex; /* Aligns time inputs in a row */
+}
+
+.time-inputs input {
+    width: 60px; /* Set width for time inputs */
+    margin-right: 5px; /* Space between time inputs */
+}
+
+
+/* Main container for advanced settings */
+.advanced-container {
+    background-color: #ffffff; /* White background for content */
+    padding: 30px; /* Increased padding for a spacious feel */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center; /* Center text */
+}
+
+/* Page title styling */
+h2 {
+    margin-top: 20px;
+    color: #0D47A1; /* Dark blue color for title */
+    font-size: 28px; /* Increased font size */
+    margin-bottom: 20px; /* Margin below the title */
+}
+
+/* Input label styling */
+label {
+    font-size: 16px; /* Larger font size for labels */
+    color: #555; /* Grey color for labels */
+    margin: 10px 0 5px; /* Margin above and below label */
+    display: block; /* Display as block element */
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 20px); /* Full width for inputs with padding */
+    padding: 12px; /* More padding for comfort */
+    font-size: 16px; /* Slightly larger font size */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    margin-bottom: 15px; /* Space between inputs */
+}
+
+/* Focus effect for input fields */
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #1976D2; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.3); /* Glow effect */
+}
+
+/* Button styling */
+button {
+    background-color: #1976D2; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 12px 20px; /* Button padding */
+    font-size: 16px; /* Button font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Background color transition */
+    margin: 10px 0; /* Margin above and below the button */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #1565C0; /* Darker blue on hover */
+}
+
+/* Blocked keywords list styling */
+ul#keywordList {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none; /* No bullet points */
+    padding: 0; /* No padding */
+    align-items: center;
+    margin-top: 10px; /* Margin above the list */
+}
+
+/* Individual keyword item styling */
+ul#keywordList li {
+    width: calc(100% - 20px); /* Full width for items with padding */
+    height: 50px;
+    background-color: #f8f9fa; /* Light grey background for items */
+    font-size: 16px; /* Font size for items */
+    padding: 5px; /* Padding for items */
+    margin: 2px 0; /* Vertical margin */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #dee2e6; /* Light border */
+    display: flex; /* Flex layout for items */
+    justify-content: space-between; /* Space between text and button */
+    align-items: center; /* Center items vertically */
+}
+
+/* Cross icon remove button styling */
+ul#keywordList li .remove-btn {
+    font-size: 20px; /* Increased font size for cross icon */
+    color: #f44336; /* Red color for remove button */
+    background-color: transparent; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    transition: color 0.3s ease; /* Color transition */
+}
+
+/* Cross icon hover effect */
+ul#keywordList li .remove-btn:hover {
+    color: #d32f2f; /* Darker red on hover */
+}
+
+/* Back to Basic Settings link styling */
+.back-link {
+    display: inline-block; /* Display inline block */
+    font-size: 16px; /* Font size for link */
+    color: #007BFF; /* Bootstrap primary blue */
+    text-decoration: none; /* No underline */
+    margin-top: 20px; /* Margin above the link */
+    cursor: pointer; /* Pointer cursor */
+    transition: color 0.3s ease; /* Color transition */
+}
+
+.back-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .advanced-container {
+        width: 90%; /* Full width on small screens */
+    }
+}

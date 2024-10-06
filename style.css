@@ -4,44 +4,44 @@ body {
   background-color: rgba(152, 222, 182, 0);
   color: #333;
   margin: 0;
-  padding: 15px;
+  padding: 10px; /* Reduced padding */
   text-align: center;
-  width:200px;
+  width: 200px;
 }
 
 /* Page title */
 h2 {
   color: #4CAF50;
-  font-size: 25px;
-  margin-bottom: 20px;
+  font-size: 20px; /* Reduced font size */
+  margin-bottom: 15px; /* Reduced margin */
 }
 
 /* Input label */
 label {
-  font-size: 15px;
+  font-size: 13px; /* Reduced font size */
   color: #555;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: inline-block;
 }
 
 /* Input field */
 input[type="text"] {
   width: 70%;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 14px;
+  padding: 7px; /* Reduced padding */
+  margin: 8px 0;
+  font-size: 12px; /* Reduced font size */
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 3px; /* Reduced border radius */
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 /* Input field focus */
 input[type="text"]:focus {
   border-color: #4CAF50;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.3);
 }
 
 /* Add keyword button */
@@ -49,12 +49,12 @@ button {
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 5px;
+  padding: 7px 15px; /* Reduced padding */
+  font-size: 12px; /* Reduced font size */
+  border-radius: 3px; /* Reduced border radius */
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 /* Button hover effect */
@@ -64,54 +64,75 @@ button:hover {
 
 /* Section heading for blocked keywords */
 h3 {
-  font-size: 18px;
+  font-size: 14px; /* Reduced font size */
   color: #333;
-  margin: 30px 0 10px;
+  margin: 20px 0 8px; /* Reduced margin */
   text-align: left;
 }
 
 /* Blocked keywords list */
 ul#keywordList {
   list-style-type: none;
-  padding: 2px;
-  margin: 5px auto 0;
-  max-width: 500px;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 100%; /* Limited the width */
   text-align: left;
 }
 
-/* Individual keyword item */
+/* Individual keyword item - more compact */
 ul#keywordList li {
   background-color: #fff;
-  font-size: 5px;
-  padding: 5px;
-  margin: 5px 0;
-  border-radius: 5px;
+  font-size: 10px; /* Further reduced font size */
+  padding: 3px 5px; /* Reduced padding */
+  margin: 2px 0; /* Reduced margin */
+  border-radius: 3px; /* Reduced border radius */
   border: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 /* Cross icon as a remove button */
 ul#keywordList li .remove-btn {
-  font-size: 18px;
+  font-size: 12px; /* Adjusted size */
   color: #f44336;
   background-color: transparent;
   border: none;
   cursor: pointer;
   transition: color 0.3s ease;
-  margin-left: 10px;
+  margin-left: 5px; /* Reduced margin */
 }
 
 /* Hover effect for cross icon */
 ul#keywordList li .remove-btn:hover {
   color: #d32f2f;
+  font-size:15px;
 }
 
 /* Spacing for the list items */
 ul#keywordList li span {
-  font-size: 16px;
+  font-size: 10px; /* Further reduced font size */
   color: #333;
-  margin-right: 10px;
+  margin-right: 5px;
 }
+/* Advanced options link styling */
+/* Advanced options link styling */
+.advanced-link {
+  display: inline-block;
+  font-size: 12px; /* Adjust the font size */
+  color: #4CAF50; /* Green color for the link */
+  text-decoration: none;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-align: right;
+  margin-bottom: 10px;
+  float: right; /* Align to the right */
+}
+
+/* Hover effect for the link */
+.advanced-link:hover {
+  color: #388E3C; /* Darker green on hover */
+  text-decoration: underline; /* Underline on hover to indicate it is a link */
+}
+

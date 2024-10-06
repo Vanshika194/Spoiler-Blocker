@@ -62,7 +62,7 @@ chrome.storage.sync.get({ keywords: [] }, function(data) {
       for (let node of element.childNodes) {
         if (node.nodeType === Node.TEXT_NODE) {
           let textContent = node.textContent.toLowerCase();
-
+          
           keywords.forEach(keyword => {
             if (textContent.includes(keyword)) {
               // Apply blur effect
