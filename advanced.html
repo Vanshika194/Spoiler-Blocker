@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Spoiler Settings</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="outer">
+    <div class="advanced-container">
+      <h2>Advanced Spoiler Settings</h2>
+      
+      <div class="content-box">
+        <label for="keywords">Add keyword to block:</label>
+        
+        <div class="input-container">
+          <input type="text" id="keywordInput" placeholder="Enter here" />
+          <button class="voice" id="voiceCommand">🎤 Voice </button> 
+        </div>
+
+        <div class="options-container">
+          <!-- Checkbox for blocking images -->
+          <label>
+            <input type="checkbox" id="blockImagesCheckbox">
+            Block Images
+          </label>
+
+          <!-- Checkbox for blocking videos -->
+          <label>
+            <input type="checkbox" id="blockVideosCheckbox">
+            Block Videos
+          </label>
+          <label>
+            <input type="checkbox" id="blockAudioCheckbox">
+            Block Audio
+          </label>
+          <label>
+            <input type="checkbox" id="ContextBlur">
+            Context-Blur
+          </label>
+        </div>
+
+        <!-- Checkbox for enabling time input -->
+        <div class="timeBox">
+          <label>
+            <input type="checkbox" id="enableTime">
+            Enable Time
+          </label>
+
+          <!-- Time inputs, initially hidden -->
+          <div class="time-inputs" id="timeInputs" style="display: none;">
+            <input type="number" id="blockHours" placeholder="Hrs" min="0" />
+            <input type="number" id="blockMinutes" placeholder="Min" min="0" />
+            <input type="number" id="blockSeconds" placeholder="Sec" min="0" />
+          </div>
+        </div>
+
+        <button id="addKeyword">Add</button>
+
+        <h3>Blocked Keywords:</h3>
+        <ul id="keywordList">
+          <!-- Keywords will be dynamically added here -->
+        </ul>
+      </div>
+      <a href="#" class="back-link" id="backLink">Back to Basic Settings</a>
+    </div>
+  </div>
+
+  <script src="advanced.js"></script>
+  <script src="images.js"></script>
+</body>
+</html>
