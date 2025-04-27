@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advanced Spoiler Settings</title>
   <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-  <div class="outer">
+  <div id="welcome-screen">
+    <h1>Welcome to Spoiler Blocker!</h1>
+</div>
+
+  <div class="main-content outer">
     <div class="advanced-container">
       <h2>Advanced Spoiler Settings</h2>
       
@@ -16,7 +22,7 @@
         
         <div class="input-container">
           <input type="text" id="keywordInput" placeholder="Enter here" />
-          <button class="voice" id="voiceCommand">🎤 Voice </button> 
+          <button class="voice" id="voiceCommand">🎤 Mic </button> 
         </div>
 
         <div class="options-container">
@@ -31,18 +37,18 @@
             <input type="checkbox" id="blockVideosCheckbox">
             Block Videos
           </label>
-          <label>
+          <!-- <label>
             <input type="checkbox" id="blockAudioCheckbox">
             Block Audio
-          </label>
+          </label> -->
           <label>
-            <input type="checkbox" id="ContextBlur">
+            <input type="checkbox" id="ContextBlur" checked>
             Context-Blur
           </label>
         </div>
 
         <!-- Checkbox for enabling time input -->
-        <div class="timeBox">
+        <div class="options-container timeBox">
           <label>
             <input type="checkbox" id="enableTime">
             Enable Time
