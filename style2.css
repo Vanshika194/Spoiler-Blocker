@@ -8,51 +8,171 @@
 /* Body styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #4a99e9; /* Light blue background */
-    color: #343a40; /* Dark text color */
-    /* height: 100vh; Full viewport height */
+    background-color: #0D47A1;;
+    color: #343a40; 
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center; 
+    align-items: center; 
 }
+
+/* Welcome Screen Styling */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #1976D2, #1E88E5, #42A5F5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Bebas Neue";
+    font-size: 22px;
+    z-index: 1000; 
+    opacity: 1;
+    transition: opacity 1s ease-in-out, transform 1s ease-out;
+    transform: perspective(600px) rotateX(20deg) rotateY(10deg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); 
+}
+
+/* Hidden state when transitioning out */
+#welcome-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1; 
+    transform: perspective(600px) rotateX(0deg) rotateY(0deg) scale(0.8); 
+}
+
+/* Main content container (spoiler blocker content) */
+.main-content {
+    position: relative;
+    z-index: 500; 
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+/* Show main content after welcome screen fades */
+#welcome-screen.hidden + .main-content {
+    opacity: 1;
+    z-index: 1; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+/* Animation to make the text appear with 3D effect */
+@keyframes welcomeAnimation {
+    0% {
+        transform: perspective(600px) rotateX(20deg) rotateY(10deg) scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        transform: perspective(600px) rotateX(0deg) rotateY(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Applying animation to the welcome screen */
+#welcome-screen {
+    animation: welcomeAnimation 1s ease-out forwards;
+}
+
 
 /* Outer container styling */
 .outer {
-    width: 90%; /* Responsive width */
-    max-width: 600px; /* Max width for larger screens */
+    width: 90%; 
+    max-width: 600px; 
 }
 .input-container {
     display: flex; 
-    /* align-items: center; Center items vertically */
     justify-content:center; 
     margin: 15px 0;
 }
 
 .input-container input[type="text"] {
-    width: 250px; /* Width for keyword input */
-    /* margin-right: 10px; Space between keyword input and time inputs */
+    width: 250px; 
 }
 .voice{
-    background-color: #1976D2; /* Blue background */
-    color: white; /* White text */
-    padding: 12px ; /* Button padding */
-    font-size: 16px; 
-    cursor: pointer; 
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px; /* Rounded corners */
-    outline: none; /* Remove outline */
-
-    transition: border-color 0.3s ease;
-    margin-bottom: 15px; /* Space between inputs */
+    background: #1976D2; /* Pink color */
+    color: white;
+    font-size: 16px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 15px; 
     margin-right: 15px;
     margin-left: 15px;
-    height: 50px;
+    box-shadow: 0 4px 15px rgba(41, 73, 189, 0.5);
+    animation: pulse 2s infinite;
 
+}
+#addkeyword{
+    background: #1976D2; 
+    color: white;
+    font-size: 16px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 15px; 
+    margin-right: 15px;
+    margin-left: 15px;
+    box-shadow: 0 4px 15px rgba(41, 73, 189, 0.5);
+    animation: pulse 2s infinite;
+
+}
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(41, 73, 189, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(41, 73, 189, 0.5);
+    }
 }
 .voice:hover{
     font-size: 18px;
     transition: font-size 0.2s ease-out;
 }
+/* General styling for the checkbox label */
+.options-container label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .options-container input[type="checkbox"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #888;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  /* Checkbox visual effect when checked */
+  .options-container input[type="checkbox"]:checked {
+    background-color: #007bff; 
+    transform: scale(1.2); 
+    border-color: #0056b3; 
+  }
+  
+  /* Label effect when checkbox is checked */
+  .options-container input[type="checkbox"]:checked + label {
+    color: #007bff; 
+    transform: scale(1.1); 
+  }
+  
+  /* Optional: Hover effect for checkboxes */
+  .options-container input[type="checkbox"]:hover {
+    transform: scale(1.1);
+    border-color: #007bff;
+  }
+  
 /* Style for time input fields */
 .options-container{
     display: flex;
@@ -67,19 +187,19 @@ body {
 
 }
 .time-inputs {
-    display: flex; /* Aligns time inputs in a row */
+    display: flex; 
     flex-direction: column;
 }
 
 .time-inputs input {
     width: 25%; 
-    font-size: 16px; /* Larger font size for labels */
-    color: #555; /* Grey color for labels */
+    font-size: 16px;
+    color: #555; 
     margin: 10px 5px 5px;
     padding: 12px;
-    border-radius: 5px; /* Rounded corners */
-    outline: none; /* Remove outline */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    border-radius: 5px; 
+    outline: none; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
     margin-bottom: 15px;
     border: 1px solid #ccc
 
@@ -91,39 +211,40 @@ input[type="Number"]:focus {
 
 /* Main container for advanced settings */
 .advanced-container {
-    background-color: #ffffff; /* White background for content */
-    padding: 30px; /* Increased padding for a spacious feel */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    text-align: center; /* Center text */
+    background-color: #ffffff; 
+    padding: 30px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
 }
 
 /* Page title styling */
 h2 {
     margin-top: 20px;
-    color: #0D47A1; /* Dark blue color for title */
-    font-size: 28px; /* Increased font size */
-    margin-bottom: 20px; /* Margin below the title */
+    font-family: "Bebas Neue";
+    color: #0D47A1; 
+    font-size: 30px; 
+    margin-bottom: 20px; 
 }
 
 /* Input label styling */
 label {
-    font-size: 16px; /* Larger font size for labels */
-    color: #555; /* Grey color for labels */
-    margin: 10px 0 5px; /* Margin above and below label */
-    display: block; /* Display as block element */
+    font-size: 16px; 
+    color: #555; 
+    margin: 10px 0 5px; 
+    display: block; 
 }
 
 /* Input field styling */
 input[type="text"] {
-    width: calc(100% - 20px); /* Full width for inputs with padding */
-    padding: 12px; /* More padding for comfort */
-    font-size: 16px; /* Slightly larger font size */
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px; /* Rounded corners */
-    outline: none; /* Remove outline */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
-    margin-bottom: 15px; /* Space between inputs */
+    width: calc(100% - 20px); 
+    padding: 12px; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    outline: none; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    margin-bottom: 15px; 
 }
 
 /* Focus effect for input fields */
@@ -132,83 +253,88 @@ input[type="text"]:focus {
     box-shadow: 0 0 5px rgba(25, 118, 210, 0.3); /* Glow effect */
 }
 
+
 /* Button styling */
 button {
-    background-color: #1976D2; /* Blue background */
-    color: white; /* White text */
-    border: none; /* No border */
-    padding: 12px 20px; /* Button padding */
-    font-size: 16px; /* Button font size */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s ease; /* Background color transition */
-    margin: 10px 0; /* Margin above and below the button */
+    background-color: #1976D2;
+    color: white; 
+    border: none; 
+    padding: 12px 20px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+    margin: 10px 0; 
 }
-
-/* Button hover effect */
 button:hover {
-    background-color: #1565C0; /* Darker blue on hover */
+    background-color: #1565C0; 
 }
 
-/* Blocked keywords list styling */
+
+
 ul#keywordList {
     display: flex;
     flex-direction: column;
-    list-style-type: none; /* No bullet points */
-    padding: 0; /* No padding */
+    list-style-type: none;
+    padding: 0;
     align-items: center;
-    margin-top: 10px; /* Margin above the list */
+    margin-top: 10px;
 }
 
-/* Individual keyword item styling */
 ul#keywordList li {
-    width: calc(100% - 20px); /* Full width for items with padding */
+    width: calc(100% - 20px);
     height: 50px;
-    background-color: #f8f9fa; /* Light grey background for items */
-    font-size: 16px; /* Font size for items */
-    padding: 5px; /* Padding for items */
-    margin: 2px 0; /* Vertical margin */
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #dee2e6; /* Light border */
-    display: flex; /* Flex layout for items */
-    justify-content: space-between; /* Space between text and button */
-    align-items: center; /* Center items vertically */
+    background-color: #f8f9fa;
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Cross icon remove button styling */
+ul#keywordList li:hover {
+    background-color: #e3f2fd; /* Light blue background */
+    transform: scale(1.03); /* Slight enlargement */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul#keywordList li:active {
+    background-color: #bbdefb; 
+    transform: scale(0.98); 
+}
 ul#keywordList li .remove-btn {
-    font-size: 20px; /* Increased font size for cross icon */
-    color: #f44336; /* Red color for remove button */
-    background-color: transparent; /* No background */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor */
-    transition: color 0.3s ease; 
+    font-size: 20px;
+    color: #f44336;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-/* Cross icon hover effect */
 ul#keywordList li .remove-btn:hover {
-    color: #d32f2f; /* Darker red on hover */
+    color: #d32f2f;
 }
 
-/* Back to Basic Settings link styling */
 .back-link {
-    display: inline-block; /* Display inline block */
-    font-size: 16px; /* Font size for link */
-    color: #007BFF; /* Bootstrap primary blue */
-    text-decoration: none; /* No underline */
-    margin-top: 20px; /* Margin above the link */
-    cursor: pointer; /* Pointer cursor */
-    transition: color 0.3s ease; /* Color transition */
+    display: inline-block;
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .back-link:hover {
-    color: #0056b3; /* Darker blue on hover */
-    text-decoration: underline; /* Underline on hover */
+    color: #0056b3;
+    text-decoration: underline;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
     .advanced-container {
-        width: 90%; /* Full width on small screens */
+        width:90%;}
     }
-}
