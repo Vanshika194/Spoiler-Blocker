@@ -10,14 +10,17 @@
   "background": {
     "service_worker": "background.js"
   },
-  "content_security_policy": {
-      "extension_pages": "script-src 'self'; object-src 'self'"
-  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js","images.js"]
+      "js": ["content.js", "images.js"]
     }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
   ]
 }
 
