@@ -4,7 +4,7 @@ body {
   background-color: rgba(152, 222, 182, 0);
   color: #333;
   margin: 0;
-  padding: 10px; /* Reduced padding */
+  padding: 10px;
   text-align: center;
   width: 200px;
 }
@@ -12,13 +12,13 @@ body {
 /* Page title */
 h2 {
   color: #4CAF50;
-  font-size: 20px; /* Reduced font size */
-  margin-bottom: 15px; /* Reduced margin */
+  font-size: 20px; 
+  margin-bottom: 15px; 
 }
 
 /* Input label */
 label {
-  font-size: 13px; /* Reduced font size */
+  font-size: 13px;
   color: #555;
   margin-bottom: 8px;
   display: inline-block;
@@ -27,11 +27,11 @@ label {
 /* Input field */
 input[type="text"] {
   width: 70%;
-  padding: 7px; /* Reduced padding */
+  padding: 7px; 
   margin: 8px 0;
-  font-size: 12px; /* Reduced font size */
+  font-size: 12px;
   border: 1px solid #ccc;
-  border-radius: 3px; /* Reduced border radius */
+  border-radius: 3px;
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -49,9 +49,9 @@ button {
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 7px 15px; /* Reduced padding */
-  font-size: 12px; /* Reduced font size */
-  border-radius: 3px; /* Reduced border radius */
+  padding: 7px 15px; 
+  font-size: 12px; 
+  border-radius: 3px; 
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-left: 5px;
@@ -64,9 +64,9 @@ button:hover {
 
 /* Section heading for blocked keywords */
 h3 {
-  font-size: 14px; /* Reduced font size */
+  font-size: 14px; 
   color: #333;
-  margin: 20px 0 8px; /* Reduced margin */
+  margin: 20px 0 8px; 
   text-align: left;
 }
 
@@ -75,24 +75,22 @@ ul#keywordList {
   list-style-type: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 100%; /* Limited the width */
+  max-width: 100%; 
   text-align: left;
 }
 
-/* Individual keyword item - more compact */
 ul#keywordList li {
   background-color: #fff;
-  font-size: 10px; /* Further reduced font size */
-  padding: 3px 5px; /* Reduced padding */
-  margin: 2px 0; /* Reduced margin */
-  border-radius: 3px; /* Reduced border radius */
+  font-size: 10px; 
+  padding: 3px 5px; 
+  margin: 2px 0; 
+  border-radius: 3px; 
   border: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Cross icon as a remove button */
 ul#keywordList li .remove-btn {
   font-size: 12px; /* Adjusted size */
   color: #f44336;
@@ -100,10 +98,8 @@ ul#keywordList li .remove-btn {
   border: none;
   cursor: pointer;
   transition: color 0.3s ease;
-  margin-left: 5px; /* Reduced margin */
+  margin-left: 5px;
 }
-
-/* Hover effect for cross icon */
 ul#keywordList li .remove-btn:hover {
   color: #d32f2f;
   font-size:15px;
@@ -111,28 +107,101 @@ ul#keywordList li .remove-btn:hover {
 
 /* Spacing for the list items */
 ul#keywordList li span {
-  font-size: 10px; /* Further reduced font size */
+  font-size: 10px;
   color: #333;
   margin-right: 5px;
 }
-/* Advanced options link styling */
-/* Advanced options link styling */
 .advanced-link {
   display: inline-block;
-  font-size: 12px; /* Adjust the font size */
-  color: #4CAF50; /* Green color for the link */
+  font-size: 12px;
+  color: #4CAF50; 
   text-decoration: none;
   margin-top: 10px;
   cursor: pointer;
   transition: color 0.3s ease;
   text-align: right;
   margin-bottom: 10px;
-  float: right; /* Align to the right */
+  float: right; 
 }
 
 /* Hover effect for the link */
 .advanced-link:hover {
-  color: #388E3C; /* Darker green on hover */
-  text-decoration: underline; /* Underline on hover to indicate it is a link */
+  color: #388E3C; 
+  text-decoration: underline; 
+}
+.onn{
+  display: flex;
+  justify-content: space-around;
+}
+
+.slider-container {
+  margin-top: 10px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 10px;
+}
+
+.slider-label {
+  margin-right: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 10px;
+}
+
+/* Hide the default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider (track) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 1;
+
+  background-color: #044719;
+  transition: 0.4s;
+  border-radius: 50px;
+  height: 20px;
+  width: 42px;
+  left: 67px;
+
+}
+
+/* The slider (thumb) */
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 12px;
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+/* When the checkbox is checked (ON) */
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+/* Move the slider thumb to the right when checked (ON) */
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Style for the slider status text */
+#sliderStatus {
+  margin-left: 10px;
+  font-weight: bold;
 }
 
